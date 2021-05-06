@@ -48,6 +48,30 @@ async def answer_iq(_, iq: InlineQuery):
                     ]
                 ]
             )
+        ),
+        InlineQueryResultArticle(
+            title=f"{emoji.INFORMATION} About the Bot",
+            input_message_content=InputTextMessageContent(
+                f"{emoji.ROBOT} **WakaTime Stats Bot** (@WakaStatsBot)\n\n"
+                "__Share your WakaTime/Wakapi statistics "
+                "through inline mode__\n\n"
+                "**License**: AGPL-3.0-or-later\n"
+                "**[Source Code](https://github.com/dashezup/WakaStatsBot)"
+                " | [Developer](https://t.me/dashezup)"
+                " | [Support Chat](https://t.me/ezupdev)**",
+                disable_web_page_preview=True
+            ),
+            description="Open-source bot made by Dash Eclipse (@dashezup)",
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton(
+                            "Try @WakaStatsBot",
+                            switch_inline_query_current_chat=""
+                        )
+                    ]
+                ]
+            )
         )
     ]
     await iq.answer(results)
